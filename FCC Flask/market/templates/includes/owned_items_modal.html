@@ -1,0 +1,28 @@
+<!-- Button trigger modal -->
+<!-- Purchase confirm Modal -->
+<div class="modal fade" id="selling-confirm-{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #212121;">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{i.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {{ selling_form.hidden_tag() }}
+          <input id="sold_item" name="sold_item" type="hidden" value="{{i.name}}">
+          <h5 class="mb-4 text-center">Are you sure you want to buy this {{i.name}} for {{i.price}}$ ?</h5>
+          <h5 class="mb-4 text-center">By Clicking this button items will be stored back</h5>
+          <div class="d-grid gap-2">
+            {{selling_form.submit(class='btn btn-danger')}}
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>

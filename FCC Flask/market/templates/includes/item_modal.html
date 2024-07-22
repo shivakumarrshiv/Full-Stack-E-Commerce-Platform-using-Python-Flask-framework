@@ -1,0 +1,49 @@
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #212121;">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{item.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{item.description}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<!-- Purchase confirm Modal -->
+<div class="modal fade" id="purchase-confirm-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #212121;">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{item.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {{ purchase_form.hidden_tag() }}
+          <input id="purchased_item" name="purchased_item" type="hidden" value="{{item.name}}">
+          <h5 class="mb-4 text-center">Are you sure you want to buy this {{item.name}} for {{item.price}}$ ?</h5>
+          <h5 class="mb-4 text-center">If you Click on the Purchase button it will be your's</h5>
+          <div class="d-grid gap-2">
+            {{purchase_form.submit(class='btn btn-outline-success')}}
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
